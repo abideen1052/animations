@@ -17,8 +17,8 @@ const SliderScreen = () => {
         cThumbSize={30}
         maxLimit={100}
         minLimit={10}
-
-        //cTrackColor="blue"
+        initialValue={25}
+        cTrackColor="blue"
       />
       <Text style={styles.valueText}>{sliderValue}</Text>
     </View>

@@ -18,6 +18,7 @@ type SliderProps = {
   cTrackColor?: string;
   minLimit?: number;
   maxLimit?: number;
+  initialValue?: number;
   steps?: number;
   onValueChange?: (value: number) => void;
 };
@@ -31,6 +32,7 @@ const CustomSlider = ({
   cTrackColor,
   minLimit,
   maxLimit,
+  initialValue,
   steps = 1,
   onValueChange,
 }: SliderProps) => {
@@ -45,11 +47,11 @@ const CustomSlider = ({
   // const minTranslateX = (MIN_LIMIT / MAX_LIMIT) * MAX_TRANSLATE_X;
 
   const initialTranslationX = useSharedValue(0);
-  const translateX = useSharedValue(0);
+  const translateX = useSharedValue(initialValue || 0);
 
   useEffect(() => {
     if (onValueChange) {
-      onValueChange(MIN_LIMIT);
+      onValueChange(initialValue || MIN_LIMIT);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
